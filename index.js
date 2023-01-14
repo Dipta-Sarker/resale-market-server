@@ -23,7 +23,11 @@ async function run() {
     try {
         const laptopsCollection = client.db('resaleMarket').collection('laptops')
         
-
+        app.get('/laptops', async(req,res)=>{
+            const query ={}
+            const result = await laptopsCollection.find(query).toArray()
+            res.send(result)
+        })
 
         
 
